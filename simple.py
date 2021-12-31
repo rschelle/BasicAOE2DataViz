@@ -29,8 +29,8 @@ def createplot1(total_games_by_civ,streamlit_width):
     """
     games_by_civ_df = pd.DataFrame(total_games_by_civ)
     games_by_civ_df["civ"] = games_by_civ_df.index
-    games_by_civ_df.sort_values(by = "win")
-    top10df = games_by_civ_df.loc[0:10] ##this is the top 10. I picked 130000 manually
+    games_by_civ_df.sort_values(by = "win",ascending= False)
+    top10df = games_by_civ_df.head(10)
     return px.bar(top10df, y = "win", labels = {"win": "Total Games Played"}, title = "Number of Games played by the 10 Most Popular Civs", width = 250*streamlit_width, height = 250*streamlit_width)
 
 def createplot2(total_games_by_civ,streamlit_width):
