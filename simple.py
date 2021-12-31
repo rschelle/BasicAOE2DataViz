@@ -20,11 +20,6 @@ def read_players():
     df["win"] = pd.Series(data = (df["winner"] == 1), dtype = "int")
     return df
 
-def read_matches():
-    """
-    A helper function to read in the matches csv data
-    """
-    return pd.read_csv("data/matches.csv")
 
 def createplot1(total_games_by_civ,streamlit_width):
     """
@@ -69,8 +64,6 @@ def createplot6(win_rate_by_color,streamlit_width):
 
 
 playersdf = read_players()
-matchesdf = read_matches()
-
 win_rate_by_civ = getplayersgroupby("civ")["win"].mean()
 total_games_by_civ = getplayersgroupby("civ")["win"].count()
 total_wins_by_civ = getplayersgroupby("civ")["win"].sum()
